@@ -1,7 +1,8 @@
 <?php
 
 // constants
-$_cr = '%0D%0A';
+// for LINE messaging API
+$_cr = '\n';
 
 // Get POST body content
 $content = file_get_contents('php://input');
