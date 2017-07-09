@@ -15,7 +15,8 @@ $end_date = $event['end__dateTime_pretty'];
 // todo: parse country/tag from description
 
 // create message
-$message = 'Tomorrow is '. $event_name . $cr;
+$message = 'Hello' . $cr;
+$message .= 'Tomorrow is '. $event_name . $cr;
 $message .= 'From: ' . $start_date . $cr;
 $message .= 'To: ' . $end_date;
 
