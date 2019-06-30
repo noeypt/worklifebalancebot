@@ -13,12 +13,9 @@ curl_close($ch);
 
 $obj = json_decode($result, true);
 if ($obj[0]["HasPrecipitation"]) {
-  $weather_link = $obj[0]["MobileLink"];
-  $message = "It's raining now\n". $weather_link;
   pushMessage( getFlexMessage() );
 }
 else {
-  $weather_link = $obj[0]["MobileLink"];
   pushMessage( getFlexMessage() );
 }
 
@@ -41,6 +38,8 @@ function pushMessage($flex_message) {
   curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
   $result = curl_exec($ch);
   curl_close($ch);
+
+  echo $result;
 }
 
 function getFlexMessage(){
