@@ -19,7 +19,7 @@ if ($obj[0]["HasPrecipitation"]) {
 }
 else {
   $weather_link = $obj[0]["MobileLink"];
-  $message = "No rain\n". $weather_link;
+  $message = "No rain --- ". $weather_link;
   pushMessage($message);
 }
 
