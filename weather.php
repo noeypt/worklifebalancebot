@@ -1,5 +1,5 @@
 <?php
-// Get current weather
+// Get current weather and push message if it is raining
 $weather_apikey = 'AJiNGSulcjPJzSXq4F5OhmQmsSUaY7m0';
 $weather_url = 'http://dataservice.accuweather.com/currentconditions/v1/';
 $location_key = '318821'; //Siam Square
@@ -15,9 +15,7 @@ $obj = json_decode($result, true);
 if ($obj[0]["HasPrecipitation"]) {
   pushMessage( getFlexMessage() );
 }
-else {
-  pushMessage( getFlexMessage() );
-}
+
 
 function pushMessage($flex_message) {
   $access_token = 'tWEShrbn4QrklPwjlObTVPhhGo5AnJAL/YAkZB0OaaC1rLhITnIfRDNq3s0/pTyiBAwkj6ysNYk45abbUh/hBHvi+JC0GCME7kHXnM2J8lLhLC2sE3eiMlMzObRa0fNmiWvpuFd34l8nS6Mw6Xo7cwdB04t89/1O/w1cDnyilFU=';
