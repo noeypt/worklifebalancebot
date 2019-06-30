@@ -27,6 +27,7 @@ function pushMessage($flex_message) {
   $data = '{"to": "U7cbafaedd599e8edd822e5e15476ddf8",';
   $data .= '"messages":[';
   $data .= '{"type":"flex",';
+  $data .= '"altText": "It is raining now",';
   $data .= '"contents":'.$flex_message.'}]}';
 
 
