@@ -3,9 +3,9 @@
 $weather_apikey = 'AJiNGSulcjPJzSXq4F5OhmQmsSUaY7m0';
 $weather_url = 'http://dataservice.accuweather.com/currentconditions/v1/';
 $location_key = '318821'; //Siam Square
-$request_url = $weather_url + $location_key + '?apikey=' + $weather_apikey;
+$request_url = $weather_url . $location_key . '?apikey=' . $weather_apikey;
 
-echo $request_url;
+echo $request_url . '\n';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $request_url);
