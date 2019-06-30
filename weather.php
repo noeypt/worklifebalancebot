@@ -15,11 +15,11 @@ $obj = json_decode($result, true);
 if ($obj[0]["HasPrecipitation"]) {
   $weather_link = $obj[0]["MobileLink"];
   $message = "It's raining now\n". $weather_link;
-  pushMessage($message);
+  pushMessage( getFlexMessage() );
 }
 else {
   $weather_link = $obj[0]["MobileLink"];
-  pushMessage( getFlexMessage($weather_link) );
+  pushMessage( getFlexMessage() );
 }
 
 function pushMessage($flex_message) {
@@ -43,7 +43,7 @@ function pushMessage($flex_message) {
   curl_close($ch);
 }
 
-function getFlexMessage($link_url){
+function getFlexMessage(){
   return '
   {
     "type": "bubble",
@@ -123,7 +123,8 @@ function getFlexMessage($link_url){
           "action": {
             "type": "uri",
             "label": "See details",
-            "uri": "' . $link_url .'"
+            "uri": "http://m.accuweather.com/en/th/siam-square/318821/current-weather/318821?lang=en-us"
+
           }
         }
       ]
