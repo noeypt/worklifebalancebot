@@ -17,6 +17,11 @@ if ($obj[0]["HasPrecipitation"]) {
   $message = "It's raining now\n". $weather_link;
   pushMessage($message);
 }
+else {
+  $weather_link = $obj[0]["MobileLink"];
+  $message = "No rain\n". $weather_link;
+  pushMessage($weather_link);
+}
 
 function pushMessage($message) {
   $access_token = 'tWEShrbn4QrklPwjlObTVPhhGo5AnJAL/YAkZB0OaaC1rLhITnIfRDNq3s0/pTyiBAwkj6ysNYk45abbUh/hBHvi+JC0GCME7kHXnM2J8lLhLC2sE3eiMlMzObRa0fNmiWvpuFd34l8nS6Mw6Xo7cwdB04t89/1O/w1cDnyilFU=';
