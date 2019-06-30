@@ -12,7 +12,7 @@ $result = curl_exec($ch);
 curl_close($ch);
 
 $obj = json_decode($result);
-echo $result;
+echo $obj[0]["HasPrecipitation"];
 
 // Push message
 /*
