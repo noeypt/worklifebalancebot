@@ -26,8 +26,6 @@ $obj = json_decode($result, true);
 if ($obj[0]["HasPrecipitation"]) {
   pushMessage2( getFlexMessage2() );
 }
-// test push
-pushMessage2( getFlexMessage2() );
 
 
 function pushMessage1($flex_message) {
