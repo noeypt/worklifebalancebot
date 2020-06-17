@@ -8,12 +8,18 @@ $user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03
 foreach ($user_list as &$user) {
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
-  /*  if (!is_null($weather_url)) {
+    if (!is_null($weather_url)) {
       pushMessage($user, $weather_url);
-    }*/
+    }
+    /*
+    start debug code
+
     echo $user. '|' . $location_key . '|' . $weather_url;
     echo getMessageData($user, $weather_url);
     pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
+
+    end debug code
+    */
 }
 
 
@@ -32,7 +38,7 @@ function getWeatherUrlIfRain($location_key){
   if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] > 50) {
     return $obj[0]["MobileLink"];
   }
-  else return $obj[0]["MobileLink"];
+  else return null;
 }
 
 // Map location and user
