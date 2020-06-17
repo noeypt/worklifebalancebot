@@ -65,7 +65,7 @@ function pushMessage($user_id, $url) {
 
 function getMessageData($user_id, $url){
   return '{"to": "'.$user_id.'",
-    "messages:"
+    "messages":
     {"type":"flex",
     "altText": "Rain is coming",
     "contents":'. getContent($url) .'}]}';
