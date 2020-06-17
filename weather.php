@@ -73,89 +73,67 @@ function getMessageData($user_id, $url){
 function getContent($url){
   return '
   {
-    "type": "bubble",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "spacing": "md",
-      "contents": [
-        {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "body": {
           "type": "box",
-          "layout": "baseline",
-          "spacing": "md",
+          "layout": "vertical",
           "contents": [
             {
-              "type": "text",
-              "text": "Weather notification",
-              "weight": "bold",
-              "size": "xl",
-              "flex": 0
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "horizontal",
-          "spacing": "md",
-          "margin": "xl",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "vertical",
-              "flex": 0,
-              "contents": [
-                {
-                  "type": "image",
-                  "url": "https://developer.accuweather.com/sites/default/files/12-s.png",
-                  "aspectRatio": "1:1",
-                  "size": "sm",
-                  "gravity": "bottom"
-                }
-              ]
+              "type": "image",
+              "url": "https://ecbot-beta-object.line-scdn-dev.net/img/1B2eNgbN-1592405951418",
+              "size": "full",
+              "aspectMode": "cover"
             },
             {
               "type": "box",
-              "layout": "vertical",
-              "flex": 1,
-              "spacing": "xs",
+              "layout": "horizontal",
               "contents": [
                 {
-                  "type": "spacer",
-                  "size": "sm"
+                  "type": "filler"
                 },
                 {
-                  "type": "text",
-                  "text": "Rain is coming",
-                  "color": "#111111",
-                  "wrap": true,
-                  "gravity": "top",
-                  "size": "md"
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "See next hour weather",
+                      "color": "#ffffff",
+                      "flex": 1,
+                      "size": "sm",
+                      "align": "center",
+                      "gravity": "center"
+                    }
+                  ],
+                  "backgroundColor": "#00000066",
+                  "height": "41px",
+                  "flex": 0,
+                  "paddingStart": "20px",
+                  "paddingEnd": "20px",
+                  "cornerRadius": "20px"
+                },
+                {
+                  "type": "filler"
                 }
-              ]
+              ],
+              "position": "absolute",
+              "offsetBottom": "25px",
+              "offsetStart": "0px",
+              "offsetEnd": "0px"
             }
-          ]
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "vertical",
-      "spacing": "md",
-      "margin": "xl",
-      "contents": [
-        {
-          "type": "button",
-          "style": "primary",
-          "color": "#00B900",
+          ],
+          "paddingAll": "0px",
           "action": {
             "type": "uri",
-            "label": "See details",
+            "label": "action",
             "uri": "'.$url.'"
-
           }
         }
-      ]
-    }
+      }
+    ]
   }
   ';
 }
