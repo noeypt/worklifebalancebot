@@ -73,67 +73,67 @@ function getMessageData($user_id, $url){
 function getContent($url){
   return '
   {
-    "type": "carousel",
-    "contents": [
-      {
-        "type": "bubble",
-        "body": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "image",
+          "url": "https://ecbot-beta-object.line-scdn-dev.net/img/1B2eNgbN-1592405951418",
+          "size": "full",
+          "aspectMode": "cover"
+        },
+        {
           "type": "box",
-          "layout": "vertical",
+          "layout": "horizontal",
           "contents": [
             {
-              "type": "image",
-              "url": "https://ecbot-beta-object.line-scdn-dev.net/img/1B2eNgbN-1592405951418",
-              "size": "full",
-              "aspectMode": "cover"
+              "type": "filler"
             },
             {
               "type": "box",
-              "layout": "horizontal",
+              "layout": "vertical",
               "contents": [
                 {
-                  "type": "filler"
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "See next hour weather",
-                      "color": "#ffffff",
-                      "flex": 1,
-                      "size": "sm",
-                      "align": "center",
-                      "gravity": "center"
-                    }
-                  ],
-                  "backgroundColor": "#00000066",
-                  "height": "41px",
-                  "flex": 0,
-                  "paddingStart": "20px",
-                  "paddingEnd": "20px",
-                  "cornerRadius": "20px"
-                },
-                {
-                  "type": "filler"
+                  "type": "text",
+                  "text": "See next hour weather",
+                  "color": "#ffffff",
+                  "flex": 1,
+                  "size": "sm",
+                  "align": "center",
+                  "gravity": "center",
+                  "action": {
+                    "type": "uri",
+                    "label": "action",
+                    "uri": "'.$url.'"
+                  }
                 }
               ],
-              "position": "absolute",
-              "offsetBottom": "25px",
-              "offsetStart": "0px",
-              "offsetEnd": "0px"
+              "backgroundColor": "#00000066",
+              "height": "41px",
+              "flex": 0,
+              "paddingStart": "20px",
+              "paddingEnd": "20px",
+              "cornerRadius": "20px"
+            },
+            {
+              "type": "filler"
             }
           ],
-          "paddingAll": "0px",
-          "action": {
-            "type": "uri",
-            "label": "action",
-            "uri": "'.$url.'"
-          }
+          "position": "absolute",
+          "offsetBottom": "25px",
+          "offsetStart": "0px",
+          "offsetEnd": "0px"
         }
+      ],
+      "paddingAll": "0px",
+      "action": {
+        "type": "uri",
+        "label": "action",
+        "uri": "'.$url.'"
       }
-    ]
+    }
   }
   ';
 }
