@@ -47,7 +47,7 @@ function pushMessage($user_id, $url) {
   $url = 'https://api.line.me/v2/bot/message/push';
 
   $headers = array('Authorization: Bearer ' . $access_token, 'Content-Type: application/json');
-  $data = getMessageData($user_id, $url)
+  $data = getMessageData($user_id, $url);
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
