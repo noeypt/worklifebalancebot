@@ -9,10 +9,11 @@ foreach ($user_list as &$user) {
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
   /*  if (!is_null($weather_url)) {
-      pushMessage($user, $url);
+      pushMessage($user, $weather_url);
     }*/
     echo $user. '|' . $location_key . '|' . $weather_url;
-    echo getMessageData($user, 'this is an url');
+    echo getMessageData($user, $weather_url);
+    pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
 }
 
 
@@ -37,8 +38,8 @@ function getWeatherUrlIfRain($location_key){
 // Map location and user
 function getLocation($user_id)
 {
-  if ($user_id = 'U7cbafaedd599e8edd822e5e15476ddf8') { return "318821"; } // Noey, Siam Square
-  else if ($user_id = 'U3b41f80c259f8efcc4ee03b193b0d29d') { return "319847"; } // Por, Nonthaburi
+  if ($user_id == 'U7cbafaedd599e8edd822e5e15476ddf8') { return "318821"; } // Noey, Siam Square
+  else if ($user_id == 'U3b41f80c259f8efcc4ee03b193b0d29d') { return "319847"; } // Por, Nonthaburi
   return "318849"; // Bangkok
 }
 
