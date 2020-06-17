@@ -29,7 +29,7 @@ function getWeatherUrlIfRain($location_key){
   curl_close($ch);
   $obj = json_decode($result, true);
   if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] > 50) {
-    return $obj[0]["MobileLink"]
+    return $obj[0]["MobileLink"];
   }
   else return null;
 }
