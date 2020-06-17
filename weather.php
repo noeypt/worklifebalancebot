@@ -11,8 +11,8 @@ foreach ($user_list as &$user) {
   /*  if (!is_null($weather_url)) {
       pushMessage($user, $url);
     }*/
-    echo $user. '   ' . $weather_url;
-    echo getMessageData($user_id, 'this is an url');
+    echo $user. '|' . $location_key . '|' . $weather_url;
+    echo getMessageData($user, 'this is an url');
 }
 
 
@@ -31,7 +31,7 @@ function getWeatherUrlIfRain($location_key){
   if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] > 50) {
     return $obj[0]["MobileLink"];
   }
-  else return null;
+  else return $obj[0]["MobileLink"];
 }
 
 // Map location and user
