@@ -4,8 +4,8 @@
 // 1. add user ID in $user_list
 // 2. add user ID and Accuweather location ID in getLocation()
 
-
-$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d');
+$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8');
+//$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d');
 foreach ($user_list as &$user) {
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
@@ -39,10 +39,17 @@ function getWeatherUrlIfRain($location_key){
   curl_close($ch);
   $obj = json_decode($result, true);
 
+  // begin debug code
+
+  echo $obj[0]["HasPrecipitation"] . '|' . $obj[0]["PrecipitationProbability"] . '|'. $obj[0]["MobileLink"];
+
+  // end debug code
+
   if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] > 50) {
     return $obj[0]["MobileLink"];
   }
-  else return null;
+  //else return null;
+  else return $obj[0]["MobileLink"]
 }
 
 // Map location and user
