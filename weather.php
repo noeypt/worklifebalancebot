@@ -49,7 +49,7 @@ function getWeatherUrlIfRain($location_key){
     return $obj[0]["MobileLink"];
   }
   //else return null;
-  else return $obj[0]["MobileLink"]
+  else return $obj[0]["MobileLink"]ว
 }
 
 // Map location and user
