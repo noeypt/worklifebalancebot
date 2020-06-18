@@ -18,7 +18,6 @@ foreach ($user_list as &$user) {
     start debug code
 */
     echo $user. '|' . $location_key . '|' . $weather_url;
-    echo getMessageData($user, $weather_url);
     pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
 /*
     end debug code
@@ -66,6 +65,7 @@ function pushMessage($user_id, $url) {
 
   $headers = array('Authorization: Bearer ' . $access_token, 'Content-Type: application/json');
   $data = getMessageData($user_id, $url);
+  echo $data;
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
