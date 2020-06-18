@@ -16,10 +16,10 @@ foreach ($user_list as &$user) {
     */
     /*
     start debug code
-
+*/
     echo $user. '|' . $location_key . '|' . $weather_url;
     echo getMessageData($user, $weather_url);
-    pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
+/*    pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
 
     end debug code
     */
@@ -39,13 +39,10 @@ function getWeatherUrlIfRain($location_key){
   curl_close($ch);
   $obj = json_decode($result, true);
 
-  echo $obj[0]["HasPrecipitation"] . '|' .$obj[0]["PrecipitationProbability"]. '|'.$obj[0]["MobileLink"];
-
   if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] > 50) {
     return $obj[0]["MobileLink"];
   }
   else return null;
-
 }
 
 // Map location and user
@@ -77,11 +74,12 @@ function pushMessage($user_id, $url) {
 
 
 function getMessageData($user_id, $url){
+  $message_content = getContent($url);
   return '{"to": "'.$user_id.'",
     "messages":[
     {"type":"flex",
     "altText": "Rain is coming",
-    "contents":'. getContent($url) .'}]}';
+    "contents":'. $message_content .'}]}';
 }
 function getContent($url){
   return '
