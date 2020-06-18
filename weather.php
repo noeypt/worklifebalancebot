@@ -4,8 +4,8 @@
 // 1. add user ID in $user_list
 // 2. add user ID and Accuweather location ID in getLocation()
 
-$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8');
-//$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d');
+
+$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d');
 foreach ($user_list as &$user) {
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
@@ -59,16 +59,16 @@ function getLocation($user_id)
   return "318849"; // Bangkok
 }
 
-function pushMessage($user_id, $url) {
+function pushMessage($user_id, $link_url) {
   $access_token = 'tWEShrbn4QrklPwjlObTVPhhGo5AnJAL/YAkZB0OaaC1rLhITnIfRDNq3s0/pTyiBAwkj6ysNYk45abbUh/hBHvi+JC0GCME7kHXnM2J8lLhLC2sE3eiMlMzObRa0fNmiWvpuFd34l8nS6Mw6Xo7cwdB04t89/1O/w1cDnyilFU=';
-  $url = 'https://api.line.me/v2/bot/message/push';
+  $api_endpoint = 'https://api.line.me/v2/bot/message/push';
 
   $headers = array('Authorization: Bearer ' . $access_token, 'Content-Type: application/json');
-  $data = getMessageData($user_id, $url);
+  $data = getMessageData($user_id, $link_url);
   echo $data;
 
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_URL, $api_endpoint);
   curl_setopt($ch, CURLOPT_POST, 1);
   curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
