@@ -4,8 +4,8 @@
 // 1. add user ID in $user_list
 // 2. add user ID and Accuweather location ID in getLocation()
 
-$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8');
-//$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d');
+
+$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d');
 foreach ($user_list as &$user) {
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
@@ -19,8 +19,8 @@ foreach ($user_list as &$user) {
 */
     echo $user. '|' . $location_key . '|' . $weather_url;
     echo getMessageData($user, $weather_url);
-/*    pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
-
+    pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
+/*
     end debug code
     */
 }
