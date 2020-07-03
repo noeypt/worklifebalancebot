@@ -5,7 +5,7 @@
 // 2. add user ID and Accuweather location ID in getLocation()
 
 
-$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d');
+$user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d', 'Ucba9159099ea438876d296604fbdd8d6');
 foreach ($user_list as &$user) {
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
@@ -21,7 +21,7 @@ foreach ($user_list as &$user) {
     pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
     */
     // end debug code
-    */
+
 }
 
 
@@ -55,6 +55,7 @@ function getLocation($user_id)
 {
   if ($user_id == 'U7cbafaedd599e8edd822e5e15476ddf8') { return "318821"; } // Noey, Siam Square
   else if ($user_id == 'U3b41f80c259f8efcc4ee03b193b0d29d') { return "319847"; } // Por, Nonthaburi
+  else if ($user_id == 'Ucba9159099ea438876d296604fbdd8d6') { return "318819"; } // First, Pathumwan
   return "318849"; // Bangkok
 }
 
