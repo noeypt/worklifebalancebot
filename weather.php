@@ -7,9 +7,9 @@
 
 $user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d', 'Ucba9159099ea438876d296604fbdd8d6');
 foreach ($user_list as &$user) {
-    echo 'Checking user=' . $user. '<br>$location_key=' . $location_key . '<br>$weather_url=' . $weather_url . '<br>';
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
+    echo 'Checking user=' . $user. '<br>$location_key=' . $location_key . '<br>$weather_url=' . $weather_url . '<br>';
 /*
     if (!is_null($weather_url)) {
       pushMessage($user, $weather_url);
