@@ -11,24 +11,24 @@ foreach ($user_list as &$user) {
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
     echo 'location_key=' . $location_key . '<br>weather_url=' . $weather_url . '<br>';
-/*
+
     if (!is_null($weather_url)) {
       pushMessage($user, $weather_url);
     }
-*/
+
 
     // begin debug code
     // test message sending
-    if (!is_null($weather_url)) {
-      pushMessage($user, $weather_url);
-    }
+    /*
+    pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
+    */
     // end debug code
     echo '<br>';
 }
 
 
 function getWeatherUrlIfRain($location_key){
-  echo 'Calling Accuweather...';
+  echo 'Calling Accuweather... ';
   $weather_apikey = 'AJiNGSulcjPJzSXq4F5OhmQmsSUaY7m0';
   $api_endpoint = 'http://dataservice.accuweather.com/forecasts/v1/hourly/1hour/';
   // current condition API 'http://dataservice.accuweather.com/currentconditions/v1/';
