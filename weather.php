@@ -7,6 +7,7 @@
 
 $user_list = array('U7cbafaedd599e8edd822e5e15476ddf8', 'U3b41f80c259f8efcc4ee03b193b0d29d', 'Ucba9159099ea438876d296604fbdd8d6');
 foreach ($user_list as &$user) {
+    echo 'Checking user=' . $user. '<br>$location_key=' . $location_key . '<br>$weather_url=' . $weather_url . '<br>';
     $location_key = getLocation($user);
     $weather_url = getWeatherUrlIfRain($location_key);
 /*
@@ -16,10 +17,10 @@ foreach ($user_list as &$user) {
 */
 
     // begin debug code
-
-    echo $user. '|' . $location_key . '|' . $weather_url . '<br>';
+    // test message sending
+    /*
     pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
-
+    */
     // end debug code
 
 }
@@ -38,16 +39,15 @@ function getWeatherUrlIfRain($location_key){
   curl_close($ch);
   $obj = json_decode($result, true);
 
-  // begin debug code
-
-  echo $obj[0]["HasPrecipitation"] . '|' . $obj[0]["PrecipitationProbability"] . '|'. $obj[0]["MobileLink"] . '<br>';
-
-  // end debug code
 
   if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] >= 70) {
+    echo 'Has rain: HasPrecipitation=' . $obj[0]["HasPrecipitation"] . '<br>PrecipitationProbability=' . $obj[0]["PrecipitationProbability"] . '<br>MobileLink='. $obj[0]["MobileLink"] . '<br>';
     return $obj[0]["MobileLink"];
   }
-  else return null;
+  else {
+    echo 'No rain: HasPrecipitation=' . $obj[0]["HasPrecipitation"] . '<br>PrecipitationProbability=' . $obj[0]["PrecipitationProbability"] . '<br>MobileLink='. $obj[0]["MobileLink"] . '<br>';
+    return null;
+  }
 }
 
 // Map location and user
