@@ -16,10 +16,10 @@ foreach ($user_list as &$user) {
 
 
     // begin debug code
-    /*
+
     echo $user. '|' . $location_key . '|' . $weather_url;
     pushMessage('U7cbafaedd599e8edd822e5e15476ddf8', $weather_url);
-    */
+
     // end debug code
 
 }
@@ -39,9 +39,9 @@ function getWeatherUrlIfRain($location_key){
   $obj = json_decode($result, true);
 
   // begin debug code
-  /*
+
   echo $obj[0]["HasPrecipitation"] . '|' . $obj[0]["PrecipitationProbability"] . '|'. $obj[0]["MobileLink"];
-  */
+  
   // end debug code
 
   if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] >= 70) {
@@ -65,7 +65,7 @@ function pushMessage($user_id, $link_url) {
 
   $headers = array('Authorization: Bearer ' . $access_token, 'Content-Type: application/json');
   $data = getMessageData($user_id, $link_url);
-  echo $data;
+  ////echo $data;
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $api_endpoint);
@@ -76,7 +76,7 @@ function pushMessage($user_id, $link_url) {
   $result = curl_exec($ch);
   curl_close($ch);
 
-  echo $result;
+  ////echo $result;
 }
 
 
