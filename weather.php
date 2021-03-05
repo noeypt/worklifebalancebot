@@ -42,7 +42,7 @@ function getWeatherUrlIfRain($location_key){
   $obj = json_decode($result, true);
 
 
-  if ($obj[0]["HasPrecipitation"] || $obj[0]["PrecipitationProbability"] >= 70) {
+  if ($obj[0]["PrecipitationProbability"] >= 70) {
     echo 'Has rain: HasPrecipitation=' . $obj[0]["HasPrecipitation"] . '<br>PrecipitationProbability=' . $obj[0]["PrecipitationProbability"] . '<br>MobileLink='. $obj[0]["MobileLink"] . '<br>';
     return $obj[0]["MobileLink"];
   }
